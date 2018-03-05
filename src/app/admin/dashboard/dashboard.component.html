@@ -1,0 +1,47 @@
+<div class="container-fluid second-sec padding-bottom">
+  <div class="container">
+    <div class="col-md-12 profile-heading">
+      <h4>Dashboard</h4>
+    </div>
+    <div class="col-md-12">
+      <div class="upload-sec">
+        <!-- <div class="col-md-12 col-sm-12">
+          <p>Hi, {{user.username}}({{user.email}}) </p>
+        </div> -->
+        <div class="col-md-12 col-sm-12 profile-left">
+          <div class="input-box-right">
+          <input type="file" id="fileInput" #fileInput/>
+          <!-- <a *ngIf='amazonLink' href="{{amazonLink}}" target='_blank' class="file-link"> File link </a> -->
+          <button type="submit" class="btn btn-primary" (click)="upload()" [disabled]="isSubmitting"> Save</button>
+          <div class="clearfix"></div>
+        </div>
+         
+          <div class="table-responsive">
+            <!-- <legend>USERS & CHEFS</legend> -->
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>NAME</th>
+                        <th>SIZE</th>
+                        <th>LAST MODIFIED</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of files | paginate: { itemsPerPage: perpage, 
+                    currentPage: p }">
+                        <td><a href="https://s3.us-east-2.amazonaws.com/primeshare/{{item.Key}}" target='_blank' class="file-link" >{{item.Key}}</a></td>
+                        <td>{{item.Size/1024 | number: '1.1-1'}} kb</td>
+                        <td>{{item.LastModified | date: 'medium'}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <pagination-controls (pageChange)="p = $event" class="pagina-tion"></pagination-controls>
+        </div>
+        </div>
+      </div>
+      <!-- <div class="col-md-12 col-sm-12">
+        
+      </div> -->
+    </div>
+  </div>
+</div>

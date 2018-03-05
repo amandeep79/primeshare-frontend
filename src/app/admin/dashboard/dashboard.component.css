@@ -1,0 +1,64 @@
+.upload-sec {
+ 
+  width: 100%;
+  display: block;
+  overflow: hidden;
+  margin: 0 auto;
+  padding: 26px 50px;
+  border: 1px solid #ddd;
+  background: #fff;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+}
+.upload-sec p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+.upload-sec input#fileInput {
+  margin-bottom: 0px;
+  width: 25%;
+}
+.input-box-right {
+  text-align: right;
+  padding-bottom: 20px;
+}
+.upload-sec .btn-primary {
+  color: #fff;
+  background-color: #5CB85C;
+  border-color: #5CB85C;
+  border-radius: 4px;
+  padding: 6px 27px;
+  margin-top: 0px;
+}
+.upload-sec .btn-primary:focus {
+  outline: none;
+}
+.padding-bottom {
+  padding-bottom: 44px;
+}
+.file-link {
+  float: left;
+  margin-bottom: 4px;
+  color: #2199e8;
+}
+.table-responsive{
+  text-align: left;
+}
+.table-responsive table tr th {
+  background: #5cb85c;
+  color: white;
+  font-size: 14px;
+}
+.table-responsive table tbody tr td{
+  font-size: 13px;
+}
+.profile-left{
+  width: 100%;
+}
+
+.pagina-tion ul{
+  padding-left: 0 !important;
+}
+
+.ngx-pagination .current{
+  color: #5cb85c !important;
+}

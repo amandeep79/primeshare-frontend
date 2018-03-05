@@ -1,0 +1,57 @@
+<div class="container-fluid second-sec">
+  <div class="container">
+    <div class="col-md-12 profile-heading">
+      <h4>Profile</h4>
+    </div>
+    <div class=" col-md-8 col-sm-8 profile-page">
+      <div class="col-md-4 col-sm-4 profile-left">
+        <img src="{{apiUrl}}/{{userForm.controls.picture.value}}">
+        <!-- <label for="fileInput" >Select Image</label> -->
+        <input type="file" id="fileInput" #fileInput accept='image/*'/>
+        <!-- <button type="button" (click)="upload()">Upload</button> -->
+      </div>
+      <div class="col-md-8 col-sm-8  profile-right">
+        <h3>Profile</h3>
+        <list-errors [errors]="errors"></list-errors>
+        <form [formGroup]="userForm" (ngSubmit)="updateUser()">
+          <fieldset [disabled]="isSubmitting">
+            <fieldset class="form-group">
+              <input type="text" formControlName="username" class="form-control form-control-lg" placeholder="Name" required>
+              <span *ngIf="!userForm.controls.username.valid && userForm.controls.username.errors['required'] && userForm.controls.username.touched"
+                class="help-block">
+                Username is required.
+              </span>
+            </fieldset>
+            
+            <fieldset class="form-group">
+              <input type="text" formControlName="email" class="form-control form-control-lg" placeholder="Email" required>
+              <span *ngIf="!userForm.controls.email.valid && userForm.controls.email.errors['required'] && userForm.controls.email.touched"
+                class="help-block">
+                Email is required.
+              </span>
+              <span *ngIf="!userForm.controls.email.valid && userForm.controls.email.errors['email'] && !userForm.controls.email.errors['required'] && userForm.controls.email.touched"
+                class="help-block">
+                Please enter valid mail.
+              </span>
+            </fieldset>
+            <fieldset class="form-group">
+              <input type="number" formControlName="phone" class="form-control form-control-lg" placeholder="Contact">
+            </fieldset>
+            <fieldset class="form-group">
+              <input type="text" formControlName="address" class="form-control form-control-lg" placeholder="Address">
+            </fieldset>
+            <fieldset>
+              <label class="response-message">{{message}}</label>
+            </fieldset>
+            
+            <button type="submit" [disabled]="!userForm.valid" class="btn btn-primary"> Update Profile</button>
+          </fieldset>
+        </form>
+
+      </div>
+    </div>
+
+
+
+  </div>
+</div>

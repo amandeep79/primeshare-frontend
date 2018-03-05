@@ -1,0 +1,19 @@
+<div class="hm-header">
+  <div class="hm-logo">
+    <h2>prime<span class="hm-media">share </span></h2>
+  </div>
+  <div class="hm-nav-bar">
+    <div class="hm-nav-bar-inside">
+      <ul>
+        <li routerLinkActive="active-tabs" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="">Home</a></li>
+        <!-- <li routerLinkActive="active-tabs" *showAuthed="true" ><a routerLink="/profile">Profile</a></li> -->
+        <li routerLinkActive="active-tabs" *showAuthed="true" ><a routerLink="/dashboard">Dashboard</a></li>
+        <li routerLinkActive="active-tabs" *showAuthed="false" ><a >About</a></li>
+        <li routerLinkActive="active-tabs" *showAuthed="false" ><a >Contact Us</a></li>
+        <li routerLinkActive="active-tabs" *showAuthed="false"><a routerLink="/login">Login</a></li>
+        <li routerLinkActive="active-tabs" *showAuthed="false"><a routerLink="/register">Register</a></li>
+        <li *showAuthed="true" ><a routerLink="" (click)="logout()">Logout</a></li>        
+      </ul>
+    </div>
+  </div>
+</div>

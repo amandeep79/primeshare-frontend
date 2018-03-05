@@ -1,0 +1,52 @@
+<div class="hm-banner">
+  <img src="assets/img/banner.jpg">
+
+  <div class="auth-page hm-banner-auth">
+    <div class="container page">
+      <div class="row">
+
+        <div class="col-md-10 offset-md-1 col-xs-12 login-sec-fields">
+          <h1 class="text-xs-center">{{ title }}</h1>
+          <p class="text-xs-center">
+            <a [routerLink]="['/login']" *ngIf="authType == 'register'">Have an account?</a>
+            <a [routerLink]="['/register']" *ngIf="authType == 'login'">Need an account?</a>
+          </p>
+          <list-errors [errors]="errors"></list-errors>
+          <form [formGroup]="authForm" (ngSubmit)="submitForm()">
+            <fieldset [disabled]="isSubmitting">
+              <fieldset class="form-group" *ngIf="authType == 'register'">
+                <input formControlName="username" placeholder="Username" class="form-control form-control-lg" type="text" required />
+                <span *ngIf="!authForm.controls.username.valid && authForm.controls.username.errors['required'] && authForm.controls.username.touched"
+                  class="help-block">
+                  Username is required.
+                </span>
+              </fieldset>
+              <fieldset class="form-group">
+                <input formControlName="email" placeholder="Email" class="form-control form-control-lg" type="text" required />
+                <span *ngIf="!authForm.controls.email.valid && authForm.controls.email.errors['required'] && authForm.controls.email.touched"
+                  class="help-block">
+                  Email is required.
+                </span>
+                <span *ngIf="!authForm.controls.email.valid && authForm.controls.email.errors['email'] && !authForm.controls.email.errors['required'] && authForm.controls.email.touched"
+                  class="help-block">
+                  Please enter valid mail.
+                </span>
+              </fieldset>
+              <fieldset class="form-group">
+                <input formControlName="password" placeholder="Password" class="form-control form-control-lg" type="password" required />
+                <span *ngIf="!authForm.controls.password.valid && authForm.controls.password.errors['required'] && authForm.controls.password.touched"
+                  class="help-block">
+                  Password is required.
+                </span>
+              </fieldset>
+              <button class="btn btn-lg btn-primary pull-xs-right" [disabled]="!authForm.valid" type="submit">
+                {{ title }}
+              </button>
+            </fieldset>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
